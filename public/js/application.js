@@ -6,5 +6,13 @@ $(document).ready(function () {
   //   3- generate a random number between 1 and 6 using JavaScript
   //   4- use jQuery to submit an AJAX post to the form's action
   //   5- when the AJAX post is done, replace the contents of the "#die" DIV in the DOM using jQuery
+  $('form').click(function(event){
+  	event.preventDefault();
+  	var url = $(this).attr('action')
+
+  	$.post(url,function(response){
+  		$("#die").replaceWith(response);
+  	});
+  });
 
 });
